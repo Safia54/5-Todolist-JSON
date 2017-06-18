@@ -1,10 +1,4 @@
 <?php 
-//Lit le fichier et renvoie le résultat dans un tableau
-// $resultat_json = file("todo.json");
-// $resultat_php = json_decode($resultat_json, true);
-// print_r($resultat_php);
-print_r($_POST["enregister"]);
-
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -15,20 +9,11 @@ error_reporting(E_ALL);
 $str = $_POST["tache1"];
 $newstr = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 
-// créer tableau pour "faire"
+// créer tableau 
 $new_array = ["faire" => $newstr, 
 				"etat" => "faire"];
 
-// créer le string archives
-$str2 = $_POST["enregister"];
-
-créer tableau pour archives
-$new_array = ["archives" => $str2, 
-				"etat" => "archives"];
-
-
 //validation
-// "" = null à faire !!!!
 if (!empty($new_array)) {
   
   
@@ -48,10 +33,7 @@ $json_envoyer =json_encode($array_json, JSON_PRETTY_PRINT);
 //  les élement php sont remis dans le json 
 file_put_contents('todo.json',$json_envoyer);
 
-}else {
-	echo "veuillez écrire une tâche avant d'appuyer sur le bouton, teubé !";
 }
-
 ?>
 
 
@@ -68,9 +50,9 @@ file_put_contents('todo.json',$json_envoyer);
 
  	<fieldset> 
  		<p>A faire</p>
- 		<!-- les checkbox de mes tâches à faire -->
+ 		<!-- Il faudrait ici des checkbox de mes tâches -->
  		<?php 
- 		//
+ 		
  		foreach ($array_json as $key => $i) {
 
  			 echo '<input type="checkbox" name="' . $key . '" value="' . $i["faire"] . '"> <label>' . $i["faire"] . '</label>' . '</br>';
@@ -79,21 +61,14 @@ file_put_contents('todo.json',$json_envoyer);
  		?>
  		
  		
- 		<!--  bouton submit enregistrer-->
+ 		<!-- Il faudrait un bouton submit enregistrer-->
  		<input type="submit" name="enregistrer" value="enregistrer">
  	</fieldset>
 
  	<fieldset>
  		<p>Archives</p>
  		<!-- Il faudrait ici des checkbox de mes tâches archivées barrées en css-->
- 		<?php 
- 		
- 		foreach ($array_json as $key => $i) {
-
- 			 echo '<input type="checkbox" class ="barré" name="' . $key . '" value="' . $i["archives"] . '"> <label>' . $i["archives"] . '</label>' . '</br>';
- 		};
-
- 		?>
+ 		<input class="barré" type="checkbox" value="" >
  	</fieldset>
  	</form>
 

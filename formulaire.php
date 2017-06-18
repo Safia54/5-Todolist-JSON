@@ -3,15 +3,23 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-
+print_r($_POST["enregister"]);
 
 //santization
 $str = $_POST["tache1"];
 $newstr = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 
-// créer tableau 
+// créer tableau pour "faire"
 $new_array = ["faire" => $newstr, 
 				"etat" => "faire"];
+
+// créer le string archives
+$str2 = $_POST["enregister"];
+
+// créer tableau pour archives
+$new_array = ["archives" => $str2, 
+				"etat" => "archives"];
+
 
 //validation
 // "" = null à faire !!!!
@@ -54,7 +62,7 @@ file_put_contents('todo.json',$json_envoyer);
 
  	<fieldset> 
  		<p>A faire</p>
- 		<!-- Il faudrait ici des checkbox de mes tâches -->
+ 		<!-- les checkbox de mes tâches à faire -->
  		<?php 
  		//
  		foreach ($array_json as $key => $i) {
@@ -64,15 +72,21 @@ file_put_contents('todo.json',$json_envoyer);
 
  		?>
  		
- 		
- 		<!-- Il faudrait un bouton submit enregistrer-->
+ 		<!--  bouton submit enregistrer-->
  		<input type="submit" name="enregistrer" value="enregistrer">
  	</fieldset>
 
  	<fieldset>
  		<p>Archives</p>
  		<!-- Il faudrait ici des checkbox de mes tâches archivées barrées en css-->
- 		<input class="barré" type="checkbox" value="" >
+ 		<?php 
+ 		
+ 		foreach ($array_json as $key => $i) {
+
+ 			 echo '<input type="checkbox" class ="barré" name="' . $key . '" value="' . $i["archives"] . '"> <label>' . $i["archives"] . '</label>' . '</br>';
+ 		};
+
+ 		?>
  	</fieldset>
  	</form>
 

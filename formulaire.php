@@ -10,19 +10,20 @@ $str = $_POST["tache1"];
 $newstr = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 
 // créer tableau pour "faire"
-$new_array = ["faire" => $newstr, 
+$new_array1 = ["faire" => $newstr, 
 				"etat" => "faire"];
 
 // créer le string archives
 $str2 = $_POST["enregister"];
 
 // créer tableau pour archives
-$new_array = ["archives" => $str2, 
+$new_array2 = ["archives" => $str2, 
 				"etat" => "archives"];
 
 
 //validation
-// "" = null à faire !!!!
+// "" = null 
+//!!!!!!pas fini, je ne sais pas comment faire !!!!
 if (!empty($new_array)) {
   
   

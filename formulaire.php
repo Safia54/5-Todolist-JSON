@@ -50,25 +50,27 @@ if (isset($_POST["todo"])){
 
 			foreach ($contenu_du_json_en_PHP as $key => $todo) {
 				
-			 		echo '<input type="checkbox" name="done" value="' . $todo["état"] . '">'. $todo["tâche"] . '</br>';
+			 		echo '<input type="checkbox" name="done[]" value="' . $todo["tâche"] . '">'. $todo["tâche"] . '</br>';
 			 }
 
 			?>
 
 			<input type="submit" name="envoyerDone" value="cocher et valider choses faites">
 		</form>
-		<form method="post" action="contenu.php">
+		<form method="post" action="formulaire.php">
 			<p> écrit ci-dessous une tâche/mission que tu aimerais bien faire avant de crever. La vie est courte, veux-tu apprendre la guitare? Devenir peintre cubiste? sortir un album de rap? Apprendre la programmation informatique ? Ecris tout ce que tu veux ici </p>	
 			<input type="text" name="todo" value="" placeholder="Ecrire tâche ici"> 
 			</textarea> 
 			<input type="submit" name="envoyerTodo" value="Créer nouvelle tâche">
 			<h2> Trucs déjà faits de la liste :</h2>
-			<?php 
-			// $done = $_POST['envoyerDone'];
-			// foreach ($done as $key => $value) {
-			// 	echo $value;
-			// }
-			// echo '<input class="barré type="checkbox" checked ="yes" disabled ="disabled">' . $_POST['todo2'];
+			<?php
+			$done = $_POST['done'];
+			// print_r($done);
+
+			foreach ($done as $key => $value) {
+				 echo '<div> <input type="checkbox" checked ="yes" disabled ="disabled" class="barré" > <p class="barré">' . $value . '</p> </div>';
+			}
+			
 			 ?>
 		</form>
 	</body>

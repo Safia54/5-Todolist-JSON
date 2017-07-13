@@ -1,54 +1,18 @@
 [
     {
-        "tâche": "test",
+        "tâche": "Ecrire un album de rap",
         "état": "todo"
     },
     {
-        "tâche": "yo",
+        "tâche": "aider maman enb cuisine",
         "état": "todo"
     },
     {
-        "tâche": "youpi",
+        "tâche": "Faire une veille sur  Ruby",
         "état": "todo"
     },
     {
-        "tâche": "on",
-        "état": "todo"
-    },
-    {
-        "tâche": "test encore",
-        "état": "todo"
-    },
-    {
-        "tâche": "on",
-        "état": "todo"
-    },
-    {
-        "tâche": "on",
-        "état": "todo"
-    },
-    {
-        "tâche": "on",
-        "état": "todo"
-    },
-    {
-        "tâche": "khhhh",
-        "état": "todo"
-    },
-    {
-        "tâche": "khhhh",
-        "état": "todo"
-    },
-    {
-        "tâche": "sdqd",
-        "état": "todo"
-    },
-    {
-        "tâche": "aaaa",
-        "état": "todo"
-    },
-    {
-        "tâche": "on",
+        "tâche": "apprendre à faire de la guitare",
         "état": "todo"
     }
 ]

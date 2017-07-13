@@ -50,7 +50,7 @@ if (isset($_POST["todo"])){
 
 			foreach ($contenu_du_json_en_PHP as $key => $todo) {
 				
-			 		echo '<input type="checkbox" name="todo">'. $todo["tâche"] . '</br>';
+			 		echo '<input type="checkbox" name="done[]">'. $todo["tâche"] . '</br>';
 			 }
 
 			?>
@@ -64,9 +64,10 @@ if (isset($_POST["todo"])){
 			<input type="submit" name="envoyerTodo" value="Créer nouvelle tâche">
 			<h2> Trucs déjà faits de la liste :</h2>
 			<?php 
-			// $done = $_POST['envoyerDone'];
+			$done = $_POST['done'];
+			print_r($done);
 			// foreach ($done as $key => $value) {
-			// 	echo $value;
+			// 	echo $key;
 			// }
 			// echo '<input class="barré type="checkbox" checked ="yes" disabled ="disabled">' . $_POST['todo2'];
 			 ?>
